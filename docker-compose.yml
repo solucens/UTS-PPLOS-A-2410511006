@@ -1,0 +1,38 @@
+services:
+  gateway:
+    image: node:18
+    container_name: gateway
+    working_dir: /app
+    volumes:
+      - ./gateway:/app
+    command: sh -c "npm install && node server.js"
+    ports:
+      - "8000:8000"
+
+  auth-service:
+    image: node:18
+    container_name: auth-service
+    working_dir: /app
+    volumes:
+      - ./services/auth-service:/app
+    command: sh -c "npm install && node server.js"
+    ports:
+      - "3001:3001"
+
+  employee-service:
+    image: php:8.2-apache
+    container_name: employee-service
+    volumes:
+      - ./services/employee-service:/var/www/html
+    ports:
+      - "8080:80"
+
+  attendance-service:
+    image: node:18
+    container_name: attendance-service
+    working_dir: /app
+    volumes:
+      - ./services/attendance-service:/app
+    command: sh -c "npm install && node server.js"
+    ports:
+      - "3003:3003"
