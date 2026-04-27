@@ -2,12 +2,23 @@ const express = require("express");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const { createProxyMiddleware } = require("http-proxy-middleware");
+const rateLimit = require("express-rate-limit");
 
 const app = express();
 const PORT = 8000;
 const JWT_SECRET = "rahasia_uts";
 
 app.use(cors());
+
+const limiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 60,
+  message: {
+    message: "Terlalu banyak request, coba lagi nanti"
+  }
+});
+
+app.use(limiter);
 
 function verifyToken(req, res, next) {
   const publicPaths = [
