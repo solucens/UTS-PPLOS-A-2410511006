@@ -10,7 +10,12 @@ const JWT_SECRET = "rahasia_uts";
 app.use(cors());
 
 function verifyToken(req, res, next) {
-  const publicPaths = ["/api/auth/login", "/api/auth/register"];
+  const publicPaths = [
+  "/api/auth/login",
+  "/api/auth/register",
+  "/api/auth/refresh",
+  "/api/auth/logout"
+];
 
   if (publicPaths.includes(req.path)) {
     return next();
