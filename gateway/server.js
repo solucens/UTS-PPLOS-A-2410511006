@@ -50,7 +50,7 @@ app.use(
 app.use(
   "/api/employees",
   createProxyMiddleware({
-    target: "http://employee-service:80",
+    target: "http://localhost:8080",
     changeOrigin: true,
     pathRewrite: {
       "^/api/employees": "/employees"
