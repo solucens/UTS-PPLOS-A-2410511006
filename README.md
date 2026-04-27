@@ -1,4 +1,4 @@
-# UTS-PPLOS-A-2410511006
+# UTS PPLOS A - Sistem Kepegawaian & Absensi
 Nama: Amanda Puspitarina 
 NIM: 2410511006
 Kelas: A Informatika
