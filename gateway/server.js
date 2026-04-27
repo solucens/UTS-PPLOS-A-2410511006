@@ -39,7 +39,7 @@ app.use(verifyToken);
 app.use(
   "/api/auth",
   createProxyMiddleware({
-    target: "http://auth-service:3001",
+    target: "http://localhost:3001",
     changeOrigin: true,
     pathRewrite: {
       "^/api/auth": ""
@@ -61,10 +61,21 @@ app.use(
 app.use(
   "/api/attendance",
   createProxyMiddleware({
-    target: "http://attendance-service:3003",
+    target: "http://localhost:3003",
     changeOrigin: true,
     pathRewrite: {
       "^/api/attendance": "/attendance"
+    }
+  })
+);
+
+app.use(
+  "/api/leaves",
+  createProxyMiddleware({
+    target: "http://localhost:3003",
+    changeOrigin: true,
+    pathRewrite: {
+      "^/api/leaves": "/leaves"
     }
   })
 );
