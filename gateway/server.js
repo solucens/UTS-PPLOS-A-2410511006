@@ -25,7 +25,9 @@ function verifyToken(req, res, next) {
   "/api/auth/login",
   "/api/auth/register",
   "/api/auth/refresh",
-  "/api/auth/logout"
+  "/api/auth/logout",
+  "/api/auth/google",
+  "/api/auth/google/callback"
 ];
 
   if (publicPaths.includes(req.path)) {
