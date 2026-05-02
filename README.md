@@ -59,3 +59,6 @@ password: 123
 
 ## Catatan
 Semua request client dilakukan melalui API Gateway di port 8000.
+
+## link  Youtube
+https://youtu.be/vdzby9e2T5I
